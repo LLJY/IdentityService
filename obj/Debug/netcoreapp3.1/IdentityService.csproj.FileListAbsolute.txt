@@ -4,7 +4,6 @@
 /home/lucas/Projects/School/MCSV/Services/IdentityService/IdentityService/obj/Debug/netcoreapp3.1/IdentityService.AssemblyInfo.cs
 /home/lucas/Projects/School/MCSV/Services/IdentityService/IdentityService/bin/Debug/netcoreapp3.1/appsettings.Development.json
 /home/lucas/Projects/School/MCSV/Services/IdentityService/IdentityService/bin/Debug/netcoreapp3.1/appsettings.json
-/home/lucas/Projects/School/MCSV/Services/IdentityService/IdentityService/bin/Debug/netcoreapp3.1/google-credentials.json
 /home/lucas/Projects/School/MCSV/Services/IdentityService/IdentityService/bin/Debug/netcoreapp3.1/IdentityService
 /home/lucas/Projects/School/MCSV/Services/IdentityService/IdentityService/bin/Debug/netcoreapp3.1/IdentityService.deps.json
 /home/lucas/Projects/School/MCSV/Services/IdentityService/IdentityService/bin/Debug/netcoreapp3.1/IdentityService.runtimeconfig.json

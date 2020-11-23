@@ -6,7 +6,7 @@
       "applicationUrl": "https://localhost:5001",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "GOOGLE_APPLICATION_CREDENTIALS": "google-credentials.json"
+        "GOOGLE_APPLICATION_CREDENTIALS": "../google-credentials.json"
       }
     }
   }
