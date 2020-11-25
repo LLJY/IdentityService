@@ -1,9 +1,11 @@
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Reactive.Concurrency;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
+using System.Threading;
 using System.Threading.Tasks;
 using FirebaseAdmin.Auth;
 using Grpc.Core;
@@ -25,12 +27,12 @@ namespace IdentityService.Services
      */
     public class MainService : Identity.IdentityBase
     {
-        public HttpClient _httpClient;
-        public Random _random = new Random();
-        public IDistributedCache _distributedCache;
-        public Subject<UserCreatedPhoneNumberAndId> _userCreatedPhoneNumber = new Subject<UserCreatedPhoneNumberAndId>();
-
-        public MainService(HttpClient httpClient, IDistributedCache distributedCache)
+        private readonly HttpClient _httpClient;
+        private readonly Random _random = new Random();
+        private readonly IDistributedCache _distributedCache;
+        // controller is instantiated for every call, keep this static so we can have a call per service
+        private static readonly BlockingCollection<IServerStreamWriter<UserSignUpEvent>> UserStreams = new BlockingCollection<IServerStreamWriter<UserSignUpEvent>>();
+            public MainService(HttpClient httpClient, IDistributedCache distributedCache)
         {
             _httpClient = httpClient;
             _distributedCache = distributedCache;
@@ -122,11 +124,14 @@ namespace IdentityService.Services
                     Disabled = false
                 });
                 // update the subject with data
-                _userCreatedPhoneNumber.OnNext(new UserCreatedPhoneNumberAndId
+                foreach (var responseStream in UserStreams)
                 {
-                    PhoneNumber = request.PhoneNumber,
-                    UserId = newUser.Uid
-                });
+                    await responseStream.WriteAsync(new UserSignUpEvent
+                    {
+                        Userid = newUser.Uid,
+                        PhoneNumber = request.PhoneNumber
+                    });
+                }
                 jwt = await FirebaseAuth.DefaultInstance.CreateCustomTokenAsync(newUser.Uid,
                     new Dictionary<string, object>
                     {
@@ -162,15 +167,17 @@ namespace IdentityService.Services
             IServerStreamWriter<UserSignUpEvent> responseStream,
             ServerCallContext context)
         {
-            // subscribe to the user created event.
-            _userCreatedPhoneNumber.Subscribe(async x =>
+            // add to the list of streams waiting for responses
+            UserStreams.Add(responseStream);
+            try
             {
-                await responseStream.WriteAsync(new UserSignUpEvent
-                {
-                    Userid = x.UserId,
-                    PhoneNumber = x.PhoneNumber
-                });
-            });
+                Thread.Sleep(-1);
+            }
+            // task can be abruptly cancelled, if there is any exception, remove the call from the stream and throw
+            catch (Exception e)
+            {
+                UserStreams.TryTake(out responseStream);
+            }
         }
     }
 }
