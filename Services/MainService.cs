@@ -112,6 +112,7 @@ namespace IdentityService.Services
                 {
                     IsSuccessful = false,
                     NumTries = 1,
+                    
                 };
             }
             // if user is null, it is a sign up, not a login
@@ -143,7 +144,8 @@ namespace IdentityService.Services
                     IsSuccessful = true,
                     NumTries = 1,
                     // create a new token
-                    Token = jwt
+                    Token = jwt,
+                    IsSignUp = true
                 };
             }
             // create new firebase token since the existing user is logging in
@@ -161,6 +163,7 @@ namespace IdentityService.Services
                 NumTries = 0,
                 IsSignUp = false
             };
+            
         }
 
         public override async Task UserSignUpListener(UserSignUpListenerRequest request,

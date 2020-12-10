@@ -3,10 +3,10 @@
     "IdentityService": {
       "commandName": "Project",
       "launchBrowser": false,
-      "applicationUrl": "https://localhost:5001",
+      "applicationUrl": "http://localhost:5001",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "GOOGLE_APPLICATION_CREDENTIALS": "../google-credentials.json"
+        "GOOGLE_APPLICATION_CREDENTIALS": "/home/lucas/Projects/School/MCSV/Services/google-credentials.json"
       }
     }
   }

@@ -7,27 +7,27 @@
 
 using grpc = global::Grpc.Core;
 
-namespace IdentityService.Protos {
+namespace UserService.Protos {
   /// <summary>
-  /// The greeting service definition.
+  /// User service definition
   /// </summary>
   public static partial class User
   {
     static readonly string __ServiceName = "services.User";
 
-    static readonly grpc::Marshaller<global::IdentityService.Protos.GetUserInfoRequest> __Marshaller_services_GetUserInfoRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::IdentityService.Protos.GetUserInfoRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::IdentityService.Protos.GetUserInfoResponse> __Marshaller_services_GetUserInfoResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::IdentityService.Protos.GetUserInfoResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::IdentityService.Protos.UpdateProfileRequest> __Marshaller_services_UpdateProfileRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::IdentityService.Protos.UpdateProfileRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::IdentityService.Protos.UpdateProfileResponse> __Marshaller_services_UpdateProfileResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::IdentityService.Protos.UpdateProfileResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::UserService.Protos.GetUserInfoRequest> __Marshaller_services_GetUserInfoRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::UserService.Protos.GetUserInfoRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::UserService.Protos.GetUserInfoResponse> __Marshaller_services_GetUserInfoResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::UserService.Protos.GetUserInfoResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::UserService.Protos.UpdateProfileRequest> __Marshaller_services_UpdateProfileRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::UserService.Protos.UpdateProfileRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::UserService.Protos.UpdateProfileResponse> __Marshaller_services_UpdateProfileResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::UserService.Protos.UpdateProfileResponse.Parser.ParseFrom);
 
-    static readonly grpc::Method<global::IdentityService.Protos.GetUserInfoRequest, global::IdentityService.Protos.GetUserInfoResponse> __Method_GetUserInfo = new grpc::Method<global::IdentityService.Protos.GetUserInfoRequest, global::IdentityService.Protos.GetUserInfoResponse>(
+    static readonly grpc::Method<global::UserService.Protos.GetUserInfoRequest, global::UserService.Protos.GetUserInfoResponse> __Method_GetUserInfo = new grpc::Method<global::UserService.Protos.GetUserInfoRequest, global::UserService.Protos.GetUserInfoResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
         "GetUserInfo",
         __Marshaller_services_GetUserInfoRequest,
         __Marshaller_services_GetUserInfoResponse);
 
-    static readonly grpc::Method<global::IdentityService.Protos.UpdateProfileRequest, global::IdentityService.Protos.UpdateProfileResponse> __Method_UpdateProfile = new grpc::Method<global::IdentityService.Protos.UpdateProfileRequest, global::IdentityService.Protos.UpdateProfileResponse>(
+    static readonly grpc::Method<global::UserService.Protos.UpdateProfileRequest, global::UserService.Protos.UpdateProfileResponse> __Method_UpdateProfile = new grpc::Method<global::UserService.Protos.UpdateProfileRequest, global::UserService.Protos.UpdateProfileResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
         "UpdateProfile",
@@ -37,19 +37,31 @@ namespace IdentityService.Protos {
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
-      get { return global::IdentityService.Protos.UserReflection.Descriptor.Services[0]; }
+      get { return global::UserService.Protos.UserReflection.Descriptor.Services[0]; }
     }
 
     /// <summary>Base class for server-side implementations of User</summary>
     [grpc::BindServiceMethod(typeof(User), "BindService")]
     public abstract partial class UserBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::IdentityService.Protos.GetUserInfoResponse> GetUserInfo(global::IdentityService.Protos.GetUserInfoRequest request, grpc::ServerCallContext context)
+      /// <summary>
+      /// get individual user info
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      public virtual global::System.Threading.Tasks.Task<global::UserService.Protos.GetUserInfoResponse> GetUserInfo(global::UserService.Protos.GetUserInfoRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::IdentityService.Protos.UpdateProfileResponse> UpdateProfile(global::IdentityService.Protos.UpdateProfileRequest request, grpc::ServerCallContext context)
+      /// <summary>
+      /// executed right after sign up/OTP, allows the user to setup more details like BIO and profile picture, also users can make use of this when updating profiles
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      public virtual global::System.Threading.Tasks.Task<global::UserService.Protos.UpdateProfileResponse> UpdateProfile(global::UserService.Protos.UpdateProfileRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -71,8 +83,8 @@ namespace IdentityService.Protos {
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static void BindService(grpc::ServiceBinderBase serviceBinder, UserBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_GetUserInfo, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::IdentityService.Protos.GetUserInfoRequest, global::IdentityService.Protos.GetUserInfoResponse>(serviceImpl.GetUserInfo));
-      serviceBinder.AddMethod(__Method_UpdateProfile, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::IdentityService.Protos.UpdateProfileRequest, global::IdentityService.Protos.UpdateProfileResponse>(serviceImpl.UpdateProfile));
+      serviceBinder.AddMethod(__Method_GetUserInfo, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::UserService.Protos.GetUserInfoRequest, global::UserService.Protos.GetUserInfoResponse>(serviceImpl.GetUserInfo));
+      serviceBinder.AddMethod(__Method_UpdateProfile, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::UserService.Protos.UpdateProfileRequest, global::UserService.Protos.UpdateProfileResponse>(serviceImpl.UpdateProfile));
     }
 
   }

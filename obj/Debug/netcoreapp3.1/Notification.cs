@@ -24,33 +24,40 @@ namespace NotificationService.Protos {
     static NotificationReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChlQcm90b3Mvbm90aWZpY2F0aW9uLnByb3RvEghzZXJ2aWNlcyJLChlVc2Vy",
-            "SWROb3RpZmljYXRpb25SZXF1ZXN0Eg4KBnVzZXJpZBgBIAEoCRINCgV0aXRs",
-            "ZRgCIAEoCRIPCgdtZXNzYWdlGAMgASgJIkgKGlVzZXJJZE5vdGlmaWNhdGlv",
-            "blJlc3BvbnNlEhQKDGVycm9yTWVzc2FnZRgBIAEoCRIUCgxpc1N1Y2Nlc3Nm",
-            "dWwYAiABKAgiSQoYVG9waWNOb3RpZmljYXRpb25SZXF1ZXN0Eg0KBXRvcGlj",
-            "GAEgASgJEg0KBXRpdGxlGAIgASgJEg8KB21lc3NhZ2UYAyABKAkiRwoZVG9w",
-            "aWNOb3RpZmljYXRpb25SZXNwb25zZRIUCgxlcnJvck1lc3NhZ2UYASABKAkS",
-            "FAoMaXNTdWNjZXNzZnVsGAIgASgIIkkKGFRva2VuTm90aWZpY2F0aW9uUmVx",
-            "dWVzdBINCgV0b3BpYxgBIAEoCRINCgV0aXRsZRgCIAEoCRIPCgdtZXNzYWdl",
-            "GAMgASgJIkcKGVRva2VuTm90aWZpY2F0aW9uUmVzcG9uc2USFAoMZXJyb3JN",
-            "ZXNzYWdlGAEgASgJEhQKDGlzU3VjY2Vzc2Z1bBgCIAEoCDK9AgoMTm90aWZp",
-            "Y2F0aW9uEmUKGFNlbmROb3RpZmljYXRpb25CeVVzZXJJZBIjLnNlcnZpY2Vz",
-            "LlVzZXJJZE5vdGlmaWNhdGlvblJlcXVlc3QaJC5zZXJ2aWNlcy5Vc2VySWRO",
-            "b3RpZmljYXRpb25SZXNwb25zZRJiChdTZW5kTm90aWZpY2F0aW9uQnlUb3Bp",
-            "YxIiLnNlcnZpY2VzLlRvcGljTm90aWZpY2F0aW9uUmVxdWVzdBojLnNlcnZp",
-            "Y2VzLlRvcGljTm90aWZpY2F0aW9uUmVzcG9uc2USYgoXU2VuZE5vdGlmaWNh",
-            "dGlvbkJ5VG9rZW4SIi5zZXJ2aWNlcy5Ub2tlbk5vdGlmaWNhdGlvblJlcXVl",
-            "c3QaIy5zZXJ2aWNlcy5Ub2tlbk5vdGlmaWNhdGlvblJlc3BvbnNlQh2qAhpO",
-            "b3RpZmljYXRpb25TZXJ2aWNlLlByb3Rvc2IGcHJvdG8z"));
+            "ChlQcm90b3Mvbm90aWZpY2F0aW9uLnByb3RvEghzZXJ2aWNlcyI3ChZVcGRh",
+            "dGVVc2VyVG9rZW5SZXF1ZXN0Eg4KBnVzZXJpZBgBIAEoCRINCgV0b2tlbhgC",
+            "IAEoCSJFChdVcGRhdGVVc2VyVG9rZW5SZXNwb25zZRIUCgxlcnJvck1lc3Nh",
+            "Z2UYASABKAkSFAoMaXNTdWNjZXNzZnVsGAIgASgIIksKGVVzZXJJZE5vdGlm",
+            "aWNhdGlvblJlcXVlc3QSDgoGdXNlcmlkGAEgASgJEg0KBXRpdGxlGAIgASgJ",
+            "Eg8KB21lc3NhZ2UYAyABKAkiSAoaVXNlcklkTm90aWZpY2F0aW9uUmVzcG9u",
+            "c2USFAoMZXJyb3JNZXNzYWdlGAEgASgJEhQKDGlzU3VjY2Vzc2Z1bBgCIAEo",
+            "CCJJChhUb3BpY05vdGlmaWNhdGlvblJlcXVlc3QSDQoFdG9waWMYASABKAkS",
+            "DQoFdGl0bGUYAiABKAkSDwoHbWVzc2FnZRgDIAEoCSJHChlUb3BpY05vdGlm",
+            "aWNhdGlvblJlc3BvbnNlEhQKDGVycm9yTWVzc2FnZRgBIAEoCRIUCgxpc1N1",
+            "Y2Nlc3NmdWwYAiABKAgiSQoYVG9rZW5Ob3RpZmljYXRpb25SZXF1ZXN0Eg0K",
+            "BXRva2VuGAEgASgJEg0KBXRpdGxlGAIgASgJEg8KB21lc3NhZ2UYAyABKAki",
+            "RwoZVG9rZW5Ob3RpZmljYXRpb25SZXNwb25zZRIUCgxlcnJvck1lc3NhZ2UY",
+            "ASABKAkSFAoMaXNTdWNjZXNzZnVsGAIgASgIMpUDCgxOb3RpZmljYXRpb24S",
+            "ZQoYU2VuZE5vdGlmaWNhdGlvbkJ5VXNlcklkEiMuc2VydmljZXMuVXNlcklk",
+            "Tm90aWZpY2F0aW9uUmVxdWVzdBokLnNlcnZpY2VzLlVzZXJJZE5vdGlmaWNh",
+            "dGlvblJlc3BvbnNlEmIKF1NlbmROb3RpZmljYXRpb25CeVRvcGljEiIuc2Vy",
+            "dmljZXMuVG9waWNOb3RpZmljYXRpb25SZXF1ZXN0GiMuc2VydmljZXMuVG9w",
+            "aWNOb3RpZmljYXRpb25SZXNwb25zZRJiChdTZW5kTm90aWZpY2F0aW9uQnlU",
+            "b2tlbhIiLnNlcnZpY2VzLlRva2VuTm90aWZpY2F0aW9uUmVxdWVzdBojLnNl",
+            "cnZpY2VzLlRva2VuTm90aWZpY2F0aW9uUmVzcG9uc2USVgoPVXBkYXRlVXNl",
+            "clRva2VuEiAuc2VydmljZXMuVXBkYXRlVXNlclRva2VuUmVxdWVzdBohLnNl",
+            "cnZpY2VzLlVwZGF0ZVVzZXJUb2tlblJlc3BvbnNlQh2qAhpOb3RpZmljYXRp",
+            "b25TZXJ2aWNlLlByb3Rvc2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::NotificationService.Protos.UpdateUserTokenRequest), global::NotificationService.Protos.UpdateUserTokenRequest.Parser, new[]{ "Userid", "Token" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::NotificationService.Protos.UpdateUserTokenResponse), global::NotificationService.Protos.UpdateUserTokenResponse.Parser, new[]{ "ErrorMessage", "IsSuccessful" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NotificationService.Protos.UserIdNotificationRequest), global::NotificationService.Protos.UserIdNotificationRequest.Parser, new[]{ "Userid", "Title", "Message" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NotificationService.Protos.UserIdNotificationResponse), global::NotificationService.Protos.UserIdNotificationResponse.Parser, new[]{ "ErrorMessage", "IsSuccessful" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NotificationService.Protos.TopicNotificationRequest), global::NotificationService.Protos.TopicNotificationRequest.Parser, new[]{ "Topic", "Title", "Message" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NotificationService.Protos.TopicNotificationResponse), global::NotificationService.Protos.TopicNotificationResponse.Parser, new[]{ "ErrorMessage", "IsSuccessful" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::NotificationService.Protos.TokenNotificationRequest), global::NotificationService.Protos.TokenNotificationRequest.Parser, new[]{ "Topic", "Title", "Message" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::NotificationService.Protos.TokenNotificationRequest), global::NotificationService.Protos.TokenNotificationRequest.Parser, new[]{ "Token", "Title", "Message" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NotificationService.Protos.TokenNotificationResponse), global::NotificationService.Protos.TokenNotificationResponse.Parser, new[]{ "ErrorMessage", "IsSuccessful" }, null, null, null, null)
           }));
     }
@@ -58,6 +65,320 @@ namespace NotificationService.Protos {
 
   }
   #region Messages
+  public sealed partial class UpdateUserTokenRequest : pb::IMessage<UpdateUserTokenRequest> {
+    private static readonly pb::MessageParser<UpdateUserTokenRequest> _parser = new pb::MessageParser<UpdateUserTokenRequest>(() => new UpdateUserTokenRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<UpdateUserTokenRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::NotificationService.Protos.NotificationReflection.Descriptor.MessageTypes[0]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UpdateUserTokenRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UpdateUserTokenRequest(UpdateUserTokenRequest other) : this() {
+      userid_ = other.userid_;
+      token_ = other.token_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UpdateUserTokenRequest Clone() {
+      return new UpdateUserTokenRequest(this);
+    }
+
+    /// <summary>Field number for the "userid" field.</summary>
+    public const int UseridFieldNumber = 1;
+    private string userid_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Userid {
+      get { return userid_; }
+      set {
+        userid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "token" field.</summary>
+    public const int TokenFieldNumber = 2;
+    private string token_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Token {
+      get { return token_; }
+      set {
+        token_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as UpdateUserTokenRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(UpdateUserTokenRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Userid != other.Userid) return false;
+      if (Token != other.Token) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Userid.Length != 0) hash ^= Userid.GetHashCode();
+      if (Token.Length != 0) hash ^= Token.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Userid.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Userid);
+      }
+      if (Token.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Token);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Userid.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Userid);
+      }
+      if (Token.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Token);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(UpdateUserTokenRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Userid.Length != 0) {
+        Userid = other.Userid;
+      }
+      if (other.Token.Length != 0) {
+        Token = other.Token;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Userid = input.ReadString();
+            break;
+          }
+          case 18: {
+            Token = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class UpdateUserTokenResponse : pb::IMessage<UpdateUserTokenResponse> {
+    private static readonly pb::MessageParser<UpdateUserTokenResponse> _parser = new pb::MessageParser<UpdateUserTokenResponse>(() => new UpdateUserTokenResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<UpdateUserTokenResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::NotificationService.Protos.NotificationReflection.Descriptor.MessageTypes[1]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UpdateUserTokenResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UpdateUserTokenResponse(UpdateUserTokenResponse other) : this() {
+      errorMessage_ = other.errorMessage_;
+      isSuccessful_ = other.isSuccessful_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UpdateUserTokenResponse Clone() {
+      return new UpdateUserTokenResponse(this);
+    }
+
+    /// <summary>Field number for the "errorMessage" field.</summary>
+    public const int ErrorMessageFieldNumber = 1;
+    private string errorMessage_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string ErrorMessage {
+      get { return errorMessage_; }
+      set {
+        errorMessage_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "isSuccessful" field.</summary>
+    public const int IsSuccessfulFieldNumber = 2;
+    private bool isSuccessful_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool IsSuccessful {
+      get { return isSuccessful_; }
+      set {
+        isSuccessful_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as UpdateUserTokenResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(UpdateUserTokenResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ErrorMessage != other.ErrorMessage) return false;
+      if (IsSuccessful != other.IsSuccessful) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ErrorMessage.Length != 0) hash ^= ErrorMessage.GetHashCode();
+      if (IsSuccessful != false) hash ^= IsSuccessful.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ErrorMessage.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(ErrorMessage);
+      }
+      if (IsSuccessful != false) {
+        output.WriteRawTag(16);
+        output.WriteBool(IsSuccessful);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ErrorMessage.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ErrorMessage);
+      }
+      if (IsSuccessful != false) {
+        size += 1 + 1;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(UpdateUserTokenResponse other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ErrorMessage.Length != 0) {
+        ErrorMessage = other.ErrorMessage;
+      }
+      if (other.IsSuccessful != false) {
+        IsSuccessful = other.IsSuccessful;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            ErrorMessage = input.ReadString();
+            break;
+          }
+          case 16: {
+            IsSuccessful = input.ReadBool();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
   public sealed partial class UserIdNotificationRequest : pb::IMessage<UserIdNotificationRequest> {
     private static readonly pb::MessageParser<UserIdNotificationRequest> _parser = new pb::MessageParser<UserIdNotificationRequest>(() => new UserIdNotificationRequest());
     private pb::UnknownFieldSet _unknownFields;
@@ -66,7 +387,7 @@ namespace NotificationService.Protos {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::NotificationService.Protos.NotificationReflection.Descriptor.MessageTypes[0]; }
+      get { return global::NotificationService.Protos.NotificationReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -251,7 +572,7 @@ namespace NotificationService.Protos {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::NotificationService.Protos.NotificationReflection.Descriptor.MessageTypes[1]; }
+      get { return global::NotificationService.Protos.NotificationReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -408,7 +729,7 @@ namespace NotificationService.Protos {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::NotificationService.Protos.NotificationReflection.Descriptor.MessageTypes[2]; }
+      get { return global::NotificationService.Protos.NotificationReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -593,7 +914,7 @@ namespace NotificationService.Protos {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::NotificationService.Protos.NotificationReflection.Descriptor.MessageTypes[3]; }
+      get { return global::NotificationService.Protos.NotificationReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -750,7 +1071,7 @@ namespace NotificationService.Protos {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::NotificationService.Protos.NotificationReflection.Descriptor.MessageTypes[4]; }
+      get { return global::NotificationService.Protos.NotificationReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -767,7 +1088,7 @@ namespace NotificationService.Protos {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public TokenNotificationRequest(TokenNotificationRequest other) : this() {
-      topic_ = other.topic_;
+      token_ = other.token_;
       title_ = other.title_;
       message_ = other.message_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -778,14 +1099,14 @@ namespace NotificationService.Protos {
       return new TokenNotificationRequest(this);
     }
 
-    /// <summary>Field number for the "topic" field.</summary>
-    public const int TopicFieldNumber = 1;
-    private string topic_ = "";
+    /// <summary>Field number for the "token" field.</summary>
+    public const int TokenFieldNumber = 1;
+    private string token_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Topic {
-      get { return topic_; }
+    public string Token {
+      get { return token_; }
       set {
-        topic_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        token_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -824,7 +1145,7 @@ namespace NotificationService.Protos {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Topic != other.Topic) return false;
+      if (Token != other.Token) return false;
       if (Title != other.Title) return false;
       if (Message != other.Message) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -833,7 +1154,7 @@ namespace NotificationService.Protos {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Topic.Length != 0) hash ^= Topic.GetHashCode();
+      if (Token.Length != 0) hash ^= Token.GetHashCode();
       if (Title.Length != 0) hash ^= Title.GetHashCode();
       if (Message.Length != 0) hash ^= Message.GetHashCode();
       if (_unknownFields != null) {
@@ -849,9 +1170,9 @@ namespace NotificationService.Protos {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Topic.Length != 0) {
+      if (Token.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(Topic);
+        output.WriteString(Token);
       }
       if (Title.Length != 0) {
         output.WriteRawTag(18);
@@ -869,8 +1190,8 @@ namespace NotificationService.Protos {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Topic.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Topic);
+      if (Token.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Token);
       }
       if (Title.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Title);
@@ -889,8 +1210,8 @@ namespace NotificationService.Protos {
       if (other == null) {
         return;
       }
-      if (other.Topic.Length != 0) {
-        Topic = other.Topic;
+      if (other.Token.Length != 0) {
+        Token = other.Token;
       }
       if (other.Title.Length != 0) {
         Title = other.Title;
@@ -910,7 +1231,7 @@ namespace NotificationService.Protos {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            Topic = input.ReadString();
+            Token = input.ReadString();
             break;
           }
           case 18: {
@@ -935,7 +1256,7 @@ namespace NotificationService.Protos {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::NotificationService.Protos.NotificationReflection.Descriptor.MessageTypes[5]; }
+      get { return global::NotificationService.Protos.NotificationReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

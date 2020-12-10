@@ -21,6 +21,8 @@ namespace NotificationService.Protos {
     static readonly grpc::Marshaller<global::NotificationService.Protos.TopicNotificationResponse> __Marshaller_services_TopicNotificationResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::NotificationService.Protos.TopicNotificationResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::NotificationService.Protos.TokenNotificationRequest> __Marshaller_services_TokenNotificationRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::NotificationService.Protos.TokenNotificationRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::NotificationService.Protos.TokenNotificationResponse> __Marshaller_services_TokenNotificationResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::NotificationService.Protos.TokenNotificationResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::NotificationService.Protos.UpdateUserTokenRequest> __Marshaller_services_UpdateUserTokenRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::NotificationService.Protos.UpdateUserTokenRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::NotificationService.Protos.UpdateUserTokenResponse> __Marshaller_services_UpdateUserTokenResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::NotificationService.Protos.UpdateUserTokenResponse.Parser.ParseFrom);
 
     static readonly grpc::Method<global::NotificationService.Protos.UserIdNotificationRequest, global::NotificationService.Protos.UserIdNotificationResponse> __Method_SendNotificationByUserId = new grpc::Method<global::NotificationService.Protos.UserIdNotificationRequest, global::NotificationService.Protos.UserIdNotificationResponse>(
         grpc::MethodType.Unary,
@@ -42,6 +44,13 @@ namespace NotificationService.Protos {
         "SendNotificationByToken",
         __Marshaller_services_TokenNotificationRequest,
         __Marshaller_services_TokenNotificationResponse);
+
+    static readonly grpc::Method<global::NotificationService.Protos.UpdateUserTokenRequest, global::NotificationService.Protos.UpdateUserTokenResponse> __Method_UpdateUserToken = new grpc::Method<global::NotificationService.Protos.UpdateUserTokenRequest, global::NotificationService.Protos.UpdateUserTokenResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "UpdateUserToken",
+        __Marshaller_services_UpdateUserTokenRequest,
+        __Marshaller_services_UpdateUserTokenResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -86,6 +95,17 @@ namespace NotificationService.Protos {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
+      /// <summary>
+      /// updates or sets user token.
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      public virtual global::System.Threading.Tasks.Task<global::NotificationService.Protos.UpdateUserTokenResponse> UpdateUserToken(global::NotificationService.Protos.UpdateUserTokenRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
@@ -95,7 +115,8 @@ namespace NotificationService.Protos {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_SendNotificationByUserId, serviceImpl.SendNotificationByUserId)
           .AddMethod(__Method_SendNotificationByTopic, serviceImpl.SendNotificationByTopic)
-          .AddMethod(__Method_SendNotificationByToken, serviceImpl.SendNotificationByToken).Build();
+          .AddMethod(__Method_SendNotificationByToken, serviceImpl.SendNotificationByToken)
+          .AddMethod(__Method_UpdateUserToken, serviceImpl.UpdateUserToken).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -107,6 +128,7 @@ namespace NotificationService.Protos {
       serviceBinder.AddMethod(__Method_SendNotificationByUserId, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::NotificationService.Protos.UserIdNotificationRequest, global::NotificationService.Protos.UserIdNotificationResponse>(serviceImpl.SendNotificationByUserId));
       serviceBinder.AddMethod(__Method_SendNotificationByTopic, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::NotificationService.Protos.TopicNotificationRequest, global::NotificationService.Protos.TopicNotificationResponse>(serviceImpl.SendNotificationByTopic));
       serviceBinder.AddMethod(__Method_SendNotificationByToken, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::NotificationService.Protos.TokenNotificationRequest, global::NotificationService.Protos.TokenNotificationResponse>(serviceImpl.SendNotificationByToken));
+      serviceBinder.AddMethod(__Method_UpdateUserToken, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::NotificationService.Protos.UpdateUserTokenRequest, global::NotificationService.Protos.UpdateUserTokenResponse>(serviceImpl.UpdateUserToken));
     }
 
   }

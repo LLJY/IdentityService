@@ -12,24 +12,25 @@ namespace ChatService.Protos {
   {
     static readonly string __ServiceName = "services.Chat";
 
-    static readonly grpc::Marshaller<global::ChatService.Protos.UserEventsRequest> __Marshaller_services_UserEventsRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ChatService.Protos.UserEventsRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::ChatService.Protos.UserEventsResponse> __Marshaller_services_UserEventsResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ChatService.Protos.UserEventsResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::ChatService.Protos.Event> __Marshaller_services_Event = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ChatService.Protos.Event.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::ChatService.Protos.NewMessagesRequest> __Marshaller_services_NewMessagesRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ChatService.Protos.NewMessagesRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::ChatService.Protos.NewMessagesResponse> __Marshaller_services_NewMessagesResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ChatService.Protos.NewMessagesResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::ChatService.Protos.AllMessagesRequest> __Marshaller_services_AllMessagesRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ChatService.Protos.AllMessagesRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::ChatService.Protos.AllMessagesResponse> __Marshaller_services_AllMessagesResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ChatService.Protos.AllMessagesResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::ChatService.Protos.GetGroupsRequest> __Marshaller_services_GetGroupsRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ChatService.Protos.GetGroupsRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::ChatService.Protos.GroupInfo> __Marshaller_services_GroupInfo = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ChatService.Protos.GroupInfo.Parser.ParseFrom);
 
-    static readonly grpc::Method<global::ChatService.Protos.UserEventsRequest, global::ChatService.Protos.UserEventsResponse> __Method_GetUserEvents = new grpc::Method<global::ChatService.Protos.UserEventsRequest, global::ChatService.Protos.UserEventsResponse>(
-        grpc::MethodType.ServerStreaming,
+    static readonly grpc::Method<global::ChatService.Protos.Event, global::ChatService.Protos.Event> __Method_EventStream = new grpc::Method<global::ChatService.Protos.Event, global::ChatService.Protos.Event>(
+        grpc::MethodType.DuplexStreaming,
         __ServiceName,
-        "GetUserEvents",
-        __Marshaller_services_UserEventsRequest,
-        __Marshaller_services_UserEventsResponse);
+        "EventStream",
+        __Marshaller_services_Event,
+        __Marshaller_services_Event);
 
-    static readonly grpc::Method<global::ChatService.Protos.NewMessagesRequest, global::ChatService.Protos.NewMessagesResponse> __Method_GetNewMessages = new grpc::Method<global::ChatService.Protos.NewMessagesRequest, global::ChatService.Protos.NewMessagesResponse>(
+    static readonly grpc::Method<global::ChatService.Protos.NewMessagesRequest, global::ChatService.Protos.NewMessagesResponse> __Method_GetUnreadMessages = new grpc::Method<global::ChatService.Protos.NewMessagesRequest, global::ChatService.Protos.NewMessagesResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
-        "GetNewMessages",
+        "GetUnreadMessages",
         __Marshaller_services_NewMessagesRequest,
         __Marshaller_services_NewMessagesResponse);
 
@@ -39,6 +40,13 @@ namespace ChatService.Protos {
         "GetAllMessages",
         __Marshaller_services_AllMessagesRequest,
         __Marshaller_services_AllMessagesResponse);
+
+    static readonly grpc::Method<global::ChatService.Protos.GetGroupsRequest, global::ChatService.Protos.GroupInfo> __Method_GetGroupInfo = new grpc::Method<global::ChatService.Protos.GetGroupsRequest, global::ChatService.Protos.GroupInfo>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetGroupInfo",
+        __Marshaller_services_GetGroupsRequest,
+        __Marshaller_services_GroupInfo);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -50,17 +58,35 @@ namespace ChatService.Protos {
     [grpc::BindServiceMethod(typeof(Chat), "BindService")]
     public abstract partial class ChatBase
     {
-      public virtual global::System.Threading.Tasks.Task GetUserEvents(global::ChatService.Protos.UserEventsRequest request, grpc::IServerStreamWriter<global::ChatService.Protos.UserEventsResponse> responseStream, grpc::ServerCallContext context)
+      /// <summary>
+      /// bi-directional streaming for users to have realtime chat with each other
+      /// </summary>
+      /// <param name="requestStream">Used for reading requests from the client.</param>
+      /// <param name="responseStream">Used for sending responses back to the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>A task indicating completion of the handler.</returns>
+      public virtual global::System.Threading.Tasks.Task EventStream(grpc::IAsyncStreamReader<global::ChatService.Protos.Event> requestStream, grpc::IServerStreamWriter<global::ChatService.Protos.Event> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::ChatService.Protos.NewMessagesResponse> GetNewMessages(global::ChatService.Protos.NewMessagesRequest request, grpc::ServerCallContext context)
+      /// <summary>
+      /// get the messages that are unread.
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      public virtual global::System.Threading.Tasks.Task<global::ChatService.Protos.NewMessagesResponse> GetUnreadMessages(global::ChatService.Protos.NewMessagesRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
       public virtual global::System.Threading.Tasks.Task<global::ChatService.Protos.AllMessagesResponse> GetAllMessages(global::ChatService.Protos.AllMessagesRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::ChatService.Protos.GroupInfo> GetGroupInfo(global::ChatService.Protos.GetGroupsRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -72,9 +98,10 @@ namespace ChatService.Protos {
     public static grpc::ServerServiceDefinition BindService(ChatBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_GetUserEvents, serviceImpl.GetUserEvents)
-          .AddMethod(__Method_GetNewMessages, serviceImpl.GetNewMessages)
-          .AddMethod(__Method_GetAllMessages, serviceImpl.GetAllMessages).Build();
+          .AddMethod(__Method_EventStream, serviceImpl.EventStream)
+          .AddMethod(__Method_GetUnreadMessages, serviceImpl.GetUnreadMessages)
+          .AddMethod(__Method_GetAllMessages, serviceImpl.GetAllMessages)
+          .AddMethod(__Method_GetGroupInfo, serviceImpl.GetGroupInfo).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -83,9 +110,10 @@ namespace ChatService.Protos {
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static void BindService(grpc::ServiceBinderBase serviceBinder, ChatBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_GetUserEvents, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::ChatService.Protos.UserEventsRequest, global::ChatService.Protos.UserEventsResponse>(serviceImpl.GetUserEvents));
-      serviceBinder.AddMethod(__Method_GetNewMessages, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ChatService.Protos.NewMessagesRequest, global::ChatService.Protos.NewMessagesResponse>(serviceImpl.GetNewMessages));
+      serviceBinder.AddMethod(__Method_EventStream, serviceImpl == null ? null : new grpc::DuplexStreamingServerMethod<global::ChatService.Protos.Event, global::ChatService.Protos.Event>(serviceImpl.EventStream));
+      serviceBinder.AddMethod(__Method_GetUnreadMessages, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ChatService.Protos.NewMessagesRequest, global::ChatService.Protos.NewMessagesResponse>(serviceImpl.GetUnreadMessages));
       serviceBinder.AddMethod(__Method_GetAllMessages, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ChatService.Protos.AllMessagesRequest, global::ChatService.Protos.AllMessagesResponse>(serviceImpl.GetAllMessages));
+      serviceBinder.AddMethod(__Method_GetGroupInfo, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ChatService.Protos.GetGroupsRequest, global::ChatService.Protos.GroupInfo>(serviceImpl.GetGroupInfo));
     }
 
   }

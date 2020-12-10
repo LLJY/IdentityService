@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "MWV1UsC0u2nH/onR2iaaDf3lUOq14MIfoowrZO4t4dCw1KsQaqbz2PoccFn+Zf6m7euBtC4dZkO3yspz0NumrA==",
+  "dgSpecHash": "w6IsB+/SDf0gVsS38uhOq+kgC//yYTXJeAOMUSwYx/Ykpu0/HOuUgN3niV6zZUGHEJZ5SDX8DOkpstmHW7SWkA==",
   "success": true,
   "projectFilePath": "/home/lucas/Projects/School/MCSV/Services/IdentityService/IdentityService/IdentityService.csproj",
   "expectedPackageFiles": [
@@ -188,8 +188,8 @@
     "/home/lucas/.nuget/packages/system.threading.timer/4.0.1/system.threading.timer.4.0.1.nupkg.sha512",
     "/home/lucas/.nuget/packages/system.xml.readerwriter/4.3.0/system.xml.readerwriter.4.3.0.nupkg.sha512",
     "/home/lucas/.nuget/packages/system.xml.xdocument/4.0.11/system.xml.xdocument.4.0.11.nupkg.sha512",
-    "/home/lucas/.nuget/packages/microsoft.aspnetcore.app.ref/3.1.8/microsoft.aspnetcore.app.ref.3.1.8.nupkg.sha512",
-    "/home/lucas/.nuget/packages/microsoft.netcore.app.host.linux-x64/3.1.9/microsoft.netcore.app.host.linux-x64.3.1.9.nupkg.sha512"
+    "/home/lucas/.nuget/packages/microsoft.aspnetcore.app.ref/3.1.10/microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "/home/lucas/.nuget/packages/microsoft.netcore.app.host.linux-x64/3.1.10/microsoft.netcore.app.host.linux-x64.3.1.10.nupkg.sha512"
   ],
   "logs": [
     {

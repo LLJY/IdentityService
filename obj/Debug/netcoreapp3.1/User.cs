@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace IdentityService.Protos {
+namespace UserService.Protos {
 
   /// <summary>Holder for reflection information generated from Protos/user.proto</summary>
   public static partial class UserReflection {
@@ -25,24 +25,25 @@ namespace IdentityService.Protos {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChFQcm90b3MvdXNlci5wcm90bxIIc2VydmljZXMiJAoSR2V0VXNlckluZm9S",
-            "ZXF1ZXN0Eg4KBnVzZXJpZBgBIAEoCSJZChNHZXRVc2VySW5mb1Jlc3BvbnNl",
+            "ZXF1ZXN0Eg4KBnVzZXJpZBgBIAEoCSJrChNHZXRVc2VySW5mb1Jlc3BvbnNl",
             "Eg4KBnVzZXJpZBgBIAEoCRITCgtwaG9uZU51bWJlchgCIAEoCRIQCgh1c2Vy",
-            "TmFtZRgDIAEoCRILCgNiaW8YBCABKAkiUwoUVXBkYXRlUHJvZmlsZVJlcXVl",
-            "c3QSHAoUUHJvZmlsZVBpY3R1cmVCYXNlNjQYASABKAkSCwoDYmlvGAIgASgJ",
-            "EhAKCHVzZXJuYW1lGAMgASgJIkMKFVVwZGF0ZVByb2ZpbGVSZXNwb25zZRIU",
-            "CgxlcnJvck1lc3NhZ2UYASABKAkSFAoMaXNTdWNjZXNzZnVsGAIgASgIMqQB",
-            "CgRVc2VyEkoKC0dldFVzZXJJbmZvEhwuc2VydmljZXMuR2V0VXNlckluZm9S",
-            "ZXF1ZXN0Gh0uc2VydmljZXMuR2V0VXNlckluZm9SZXNwb25zZRJQCg1VcGRh",
-            "dGVQcm9maWxlEh4uc2VydmljZXMuVXBkYXRlUHJvZmlsZVJlcXVlc3QaHy5z",
-            "ZXJ2aWNlcy5VcGRhdGVQcm9maWxlUmVzcG9uc2VCGaoCFklkZW50aXR5U2Vy",
-            "dmljZS5Qcm90b3NiBnByb3RvMw=="));
+            "TmFtZRgDIAEoCRILCgNiaW8YBCABKAkSEAoIaXNFeGlzdHMYBSABKAgidQoU",
+            "VXBkYXRlUHJvZmlsZVJlcXVlc3QSDgoGdXNlcmlkGAEgASgJEhkKEXByb2Zp",
+            "bGVQaWN0dXJlVXJpGAIgASgJEgsKA2JpbxgDIAEoCRIQCgh1c2VybmFtZRgE",
+            "IAEoCRITCgtwaG9uZU51bWJlchgFIAEoCSJDChVVcGRhdGVQcm9maWxlUmVz",
+            "cG9uc2USFAoMZXJyb3JNZXNzYWdlGAEgASgJEhQKDGlzU3VjY2Vzc2Z1bBgC",
+            "IAEoCDKkAQoEVXNlchJKCgtHZXRVc2VySW5mbxIcLnNlcnZpY2VzLkdldFVz",
+            "ZXJJbmZvUmVxdWVzdBodLnNlcnZpY2VzLkdldFVzZXJJbmZvUmVzcG9uc2US",
+            "UAoNVXBkYXRlUHJvZmlsZRIeLnNlcnZpY2VzLlVwZGF0ZVByb2ZpbGVSZXF1",
+            "ZXN0Gh8uc2VydmljZXMuVXBkYXRlUHJvZmlsZVJlc3BvbnNlQhWqAhJVc2Vy",
+            "U2VydmljZS5Qcm90b3NiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::IdentityService.Protos.GetUserInfoRequest), global::IdentityService.Protos.GetUserInfoRequest.Parser, new[]{ "Userid" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::IdentityService.Protos.GetUserInfoResponse), global::IdentityService.Protos.GetUserInfoResponse.Parser, new[]{ "Userid", "PhoneNumber", "UserName", "Bio" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::IdentityService.Protos.UpdateProfileRequest), global::IdentityService.Protos.UpdateProfileRequest.Parser, new[]{ "ProfilePictureBase64", "Bio", "Username" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::IdentityService.Protos.UpdateProfileResponse), global::IdentityService.Protos.UpdateProfileResponse.Parser, new[]{ "ErrorMessage", "IsSuccessful" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::UserService.Protos.GetUserInfoRequest), global::UserService.Protos.GetUserInfoRequest.Parser, new[]{ "Userid" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::UserService.Protos.GetUserInfoResponse), global::UserService.Protos.GetUserInfoResponse.Parser, new[]{ "Userid", "PhoneNumber", "UserName", "Bio", "IsExists" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::UserService.Protos.UpdateProfileRequest), global::UserService.Protos.UpdateProfileRequest.Parser, new[]{ "Userid", "ProfilePictureUri", "Bio", "Username", "PhoneNumber" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::UserService.Protos.UpdateProfileResponse), global::UserService.Protos.UpdateProfileResponse.Parser, new[]{ "ErrorMessage", "IsSuccessful" }, null, null, null, null)
           }));
     }
     #endregion
@@ -57,7 +58,7 @@ namespace IdentityService.Protos {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::IdentityService.Protos.UserReflection.Descriptor.MessageTypes[0]; }
+      get { return global::UserService.Protos.UserReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -178,9 +179,6 @@ namespace IdentityService.Protos {
 
   }
 
-  /// <summary>
-  /// get individual user info
-  /// </summary>
   public sealed partial class GetUserInfoResponse : pb::IMessage<GetUserInfoResponse> {
     private static readonly pb::MessageParser<GetUserInfoResponse> _parser = new pb::MessageParser<GetUserInfoResponse>(() => new GetUserInfoResponse());
     private pb::UnknownFieldSet _unknownFields;
@@ -189,7 +187,7 @@ namespace IdentityService.Protos {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::IdentityService.Protos.UserReflection.Descriptor.MessageTypes[1]; }
+      get { return global::UserService.Protos.UserReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -210,6 +208,7 @@ namespace IdentityService.Protos {
       phoneNumber_ = other.phoneNumber_;
       userName_ = other.userName_;
       bio_ = other.bio_;
+      isExists_ = other.isExists_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -262,6 +261,20 @@ namespace IdentityService.Protos {
       }
     }
 
+    /// <summary>Field number for the "isExists" field.</summary>
+    public const int IsExistsFieldNumber = 5;
+    private bool isExists_;
+    /// <summary>
+    /// if user does not exist (userid returns null)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool IsExists {
+      get { return isExists_; }
+      set {
+        isExists_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as GetUserInfoResponse);
@@ -279,6 +292,7 @@ namespace IdentityService.Protos {
       if (PhoneNumber != other.PhoneNumber) return false;
       if (UserName != other.UserName) return false;
       if (Bio != other.Bio) return false;
+      if (IsExists != other.IsExists) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -289,6 +303,7 @@ namespace IdentityService.Protos {
       if (PhoneNumber.Length != 0) hash ^= PhoneNumber.GetHashCode();
       if (UserName.Length != 0) hash ^= UserName.GetHashCode();
       if (Bio.Length != 0) hash ^= Bio.GetHashCode();
+      if (IsExists != false) hash ^= IsExists.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -318,6 +333,10 @@ namespace IdentityService.Protos {
         output.WriteRawTag(34);
         output.WriteString(Bio);
       }
+      if (IsExists != false) {
+        output.WriteRawTag(40);
+        output.WriteBool(IsExists);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -337,6 +356,9 @@ namespace IdentityService.Protos {
       }
       if (Bio.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Bio);
+      }
+      if (IsExists != false) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -360,6 +382,9 @@ namespace IdentityService.Protos {
       }
       if (other.Bio.Length != 0) {
         Bio = other.Bio;
+      }
+      if (other.IsExists != false) {
+        IsExists = other.IsExists;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -388,15 +413,16 @@ namespace IdentityService.Protos {
             Bio = input.ReadString();
             break;
           }
+          case 40: {
+            IsExists = input.ReadBool();
+            break;
+          }
         }
       }
     }
 
   }
 
-  /// <summary>
-  /// executed right after sign up/OTP, allows the user to setup more details like BIO and profile picture, also users can make use of this when updating profiles
-  /// </summary>
   public sealed partial class UpdateProfileRequest : pb::IMessage<UpdateProfileRequest> {
     private static readonly pb::MessageParser<UpdateProfileRequest> _parser = new pb::MessageParser<UpdateProfileRequest>(() => new UpdateProfileRequest());
     private pb::UnknownFieldSet _unknownFields;
@@ -405,7 +431,7 @@ namespace IdentityService.Protos {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::IdentityService.Protos.UserReflection.Descriptor.MessageTypes[2]; }
+      get { return global::UserService.Protos.UserReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -422,9 +448,11 @@ namespace IdentityService.Protos {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public UpdateProfileRequest(UpdateProfileRequest other) : this() {
-      profilePictureBase64_ = other.profilePictureBase64_;
+      userid_ = other.userid_;
+      profilePictureUri_ = other.profilePictureUri_;
       bio_ = other.bio_;
       username_ = other.username_;
+      phoneNumber_ = other.phoneNumber_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -433,22 +461,33 @@ namespace IdentityService.Protos {
       return new UpdateProfileRequest(this);
     }
 
-    /// <summary>Field number for the "ProfilePictureBase64" field.</summary>
-    public const int ProfilePictureBase64FieldNumber = 1;
-    private string profilePictureBase64_ = "";
+    /// <summary>Field number for the "userid" field.</summary>
+    public const int UseridFieldNumber = 1;
+    private string userid_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Userid {
+      get { return userid_; }
+      set {
+        userid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "profilePictureUri" field.</summary>
+    public const int ProfilePictureUriFieldNumber = 2;
+    private string profilePictureUri_ = "";
     /// <summary>
-    /// image encoded in base64 for easy transmission
+    /// link to where the profile picture is stored, should be firebase storage
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string ProfilePictureBase64 {
-      get { return profilePictureBase64_; }
+    public string ProfilePictureUri {
+      get { return profilePictureUri_; }
       set {
-        profilePictureBase64_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        profilePictureUri_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
     /// <summary>Field number for the "bio" field.</summary>
-    public const int BioFieldNumber = 2;
+    public const int BioFieldNumber = 3;
     private string bio_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Bio {
@@ -459,13 +498,24 @@ namespace IdentityService.Protos {
     }
 
     /// <summary>Field number for the "username" field.</summary>
-    public const int UsernameFieldNumber = 3;
+    public const int UsernameFieldNumber = 4;
     private string username_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Username {
       get { return username_; }
       set {
         username_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "phoneNumber" field.</summary>
+    public const int PhoneNumberFieldNumber = 5;
+    private string phoneNumber_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string PhoneNumber {
+      get { return phoneNumber_; }
+      set {
+        phoneNumber_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -482,18 +532,22 @@ namespace IdentityService.Protos {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (ProfilePictureBase64 != other.ProfilePictureBase64) return false;
+      if (Userid != other.Userid) return false;
+      if (ProfilePictureUri != other.ProfilePictureUri) return false;
       if (Bio != other.Bio) return false;
       if (Username != other.Username) return false;
+      if (PhoneNumber != other.PhoneNumber) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (ProfilePictureBase64.Length != 0) hash ^= ProfilePictureBase64.GetHashCode();
+      if (Userid.Length != 0) hash ^= Userid.GetHashCode();
+      if (ProfilePictureUri.Length != 0) hash ^= ProfilePictureUri.GetHashCode();
       if (Bio.Length != 0) hash ^= Bio.GetHashCode();
       if (Username.Length != 0) hash ^= Username.GetHashCode();
+      if (PhoneNumber.Length != 0) hash ^= PhoneNumber.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -507,17 +561,25 @@ namespace IdentityService.Protos {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (ProfilePictureBase64.Length != 0) {
+      if (Userid.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(ProfilePictureBase64);
+        output.WriteString(Userid);
+      }
+      if (ProfilePictureUri.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(ProfilePictureUri);
       }
       if (Bio.Length != 0) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(26);
         output.WriteString(Bio);
       }
       if (Username.Length != 0) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(34);
         output.WriteString(Username);
+      }
+      if (PhoneNumber.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(PhoneNumber);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -527,14 +589,20 @@ namespace IdentityService.Protos {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (ProfilePictureBase64.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(ProfilePictureBase64);
+      if (Userid.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Userid);
+      }
+      if (ProfilePictureUri.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ProfilePictureUri);
       }
       if (Bio.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Bio);
       }
       if (Username.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Username);
+      }
+      if (PhoneNumber.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(PhoneNumber);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -547,14 +615,20 @@ namespace IdentityService.Protos {
       if (other == null) {
         return;
       }
-      if (other.ProfilePictureBase64.Length != 0) {
-        ProfilePictureBase64 = other.ProfilePictureBase64;
+      if (other.Userid.Length != 0) {
+        Userid = other.Userid;
+      }
+      if (other.ProfilePictureUri.Length != 0) {
+        ProfilePictureUri = other.ProfilePictureUri;
       }
       if (other.Bio.Length != 0) {
         Bio = other.Bio;
       }
       if (other.Username.Length != 0) {
         Username = other.Username;
+      }
+      if (other.PhoneNumber.Length != 0) {
+        PhoneNumber = other.PhoneNumber;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -568,15 +642,23 @@ namespace IdentityService.Protos {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            ProfilePictureBase64 = input.ReadString();
+            Userid = input.ReadString();
             break;
           }
           case 18: {
-            Bio = input.ReadString();
+            ProfilePictureUri = input.ReadString();
             break;
           }
           case 26: {
+            Bio = input.ReadString();
+            break;
+          }
+          case 34: {
             Username = input.ReadString();
+            break;
+          }
+          case 42: {
+            PhoneNumber = input.ReadString();
             break;
           }
         }
@@ -593,7 +675,7 @@ namespace IdentityService.Protos {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::IdentityService.Protos.UserReflection.Descriptor.MessageTypes[3]; }
+      get { return global::UserService.Protos.UserReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

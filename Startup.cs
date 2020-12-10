@@ -54,7 +54,6 @@ namespace IdentityService
                 app.UseDeveloperExceptionPage();
             }
 
-            //grpcurl -H 'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJIM3B1czNKNmZyVnJmNG9LY29LQWlJWmh0QUwyIiwiY2xhaW1zIjp7InVzZXJpZCI6IkgzcHVzM0o2ZnJWcmY0b0tjb0tBaUlaaHRBTDIifSwiaXNzIjoiZmlyZWJhc2UtYWRtaW5zZGstd3A5cGtAbWNzdi1maXJlYmFzZS1zZXJ2aWNlLmlhbS5nc2VydmljZWFjY291bnQuY29tIiwic3ViIjoiZmlyZWJhc2UtYWRtaW5zZGstd3A5cGtAbWNzdi1maXJlYmFzZS1zZXJ2aWNlLmlhbS5nc2VydmljZWFjY291bnQuY29tIiwiYXVkIjoiaHR0cHM6Ly9pZGVudGl0eXRvb2xraXQuZ29vZ2xlYXBpcy5jb20vZ29vZ2xlLmlkZW50aXR5LmlkZW50aXR5dG9vbGtpdC52MS5JZGVudGl0eVRvb2xraXQiLCJleHAiOjE2MDU0NDkzNDMsImlhdCI6MTYwNTQ0NTc0M30.VD6RxZ4V2aZP88QBVLU7KeOsHrlkYjsByRaTPg_a8TlHE1FAvFqcSuYPUaM3YZTavzmMdeOxBj-nNy554wQAFAOXVi4rpN0NgecOu0ksCnlttNdht-FIVY8pqgP8w5LkmlfYO6NWKbuizBgNyn3XFXhJ6mqGHLjAJeBviojHYNDcAA9DiQcevXIVQswUtZAs-R2JV48FS6Wpm0q2ux6y4_zn7hZnNAErvaktmR_q2fxhwff_yumhIZmsFCThR1jSQ6BcjknkkLhfcwCLIhwdcOk8RFY_JPnEilrALCk1oMZA84x8et4_CY11yqtxwwiE1fkxpG9u8cFyeBOegpSkQQ' -insecure localhost:5001 services.Identity/VerifyToken
             app.UseRouting();
             app.UseGrpcWeb();
             app.UseAuthentication();
