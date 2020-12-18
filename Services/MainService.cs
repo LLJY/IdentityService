@@ -31,7 +31,7 @@ namespace IdentityService.Services
         private readonly Random _random = new Random();
         private readonly IDistributedCache _distributedCache;
         // controller is instantiated for every call, keep this static so we can have a call per service
-        private static readonly BlockingCollection<IServerStreamWriter<UserSignUpEvent>> UserStreams = new BlockingCollection<IServerStreamWriter<UserSignUpEvent>>();
+        private static readonly BlockingCollection<IServerStreamWriter<UserSignUpEvent>> UserStreams = new ();
             public MainService(HttpClient httpClient, IDistributedCache distributedCache)
         {
             _httpClient = httpClient;
@@ -45,7 +45,7 @@ namespace IdentityService.Services
                 // ensure that OTP is not in the cache
                 await _distributedCache.RemoveAsync(request.PhoneNumber);
                 // generate the random otp
-                var otp = _random.Next(000000, 10000000);
+                var otp = _random.Next(99999, 1000000);
                 // store the random OTP to be retrieved in cache by other methods with an expiration of 60s
                 await _distributedCache.SetStringAsync(request.PhoneNumber, otp.ToString(),
                     new DistributedCacheEntryOptions
@@ -53,14 +53,14 @@ namespace IdentityService.Services
                         AbsoluteExpiration = new DateTimeOffset(DateTime.Now.AddSeconds(480))
                     });
                 string[] recipients = {request.PhoneNumber};
-                // var aspBody = new AspSmsBody("MZGUJ47WZTHX", "bt88KmAdok3Fa7ye7Siqa6pNfzoRECfFT65QsCFt", "Knot", recipients , $"YOUR OTP FROM KNOT IS {otp} DO NOT SHARE THIS WITH ANYONE!");
-                // // format the sms JSON
-                // var smsJson = new StringContent(JsonConvert.SerializeObject(aspBody, new JsonSerializerSettings
-                // {
-                //     ContractResolver = new CamelCasePropertyNamesContractResolver()
-                // }));
-                // // send the SMS
-                // await _httpClient.PostAsync("/SendTextSMS", smsJson);
+                var aspBody = new AspSmsBody("MZGUJ47WZTHX", "bt88KmAdok3Fa7ye7Siqa6pNfzoRECfFT65QsCFt", "Knot", recipients , $"YOUR OTP FROM KNOT IS {otp} DO NOT SHARE THIS WITH ANYONE!");
+                // format the sms JSON
+                var smsJson = new StringContent(JsonConvert.SerializeObject(aspBody, new JsonSerializerSettings
+                {
+                    ContractResolver = new CamelCasePropertyNamesContractResolver()
+                }));
+                // send the SMS
+                await _httpClient.PostAsync("/SendTextSMS", smsJson);
                 Console.WriteLine(otp);
                 return new OTPResponse
                 {
